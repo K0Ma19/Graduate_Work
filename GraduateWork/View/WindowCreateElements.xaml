@@ -1,0 +1,60 @@
+﻿<Window x:Name="Создание_элемента" x:Class="WpfApp3.WindowCreateElements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="Создание элемента" Height="300" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" WindowStyle="None">
+    <Grid Background="LightGray">
+        <StackPanel Width="200" HorizontalAlignment="Left">
+            <TextBlock Text="Введите название элемента:"/>
+            <TextBox x:Name="nameText"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Margin="0 40 0 0" Width="200" HorizontalAlignment="Left">
+            <TextBlock Text="Введите количесво элементов:"/>
+            <TextBox x:Name="quantityText"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Margin="0 0 0 80" x:Name="DatePanel" Width="200" HorizontalAlignment="Left">
+            <TextBlock Text="Введите дату поставки: "/>
+            <DatePicker x:Name="dateNew"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Margin="0 20 0 0" Width="200" HorizontalAlignment="Left">
+            <TextBlock Text="Выберете таблицу"/>
+            <ComboBox x:Name="TableName" SelectionChanged="TableName_SelectionChanged">
+                <ComboBoxItem>
+                    Поступление
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Остатки
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Производство
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Продажа
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Margin="0 140 0 0" x:Name="SupplierPanel" Width="200" HorizontalAlignment="Left">
+            <TextBlock Text="Введите поставщика:"/>
+            <TextBox x:Name="SupplierText"/>
+            <TextBlock Text="Введите цену покупки за ед.:"/>
+            <TextBox x:Name="PriceText"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" x:Name="NameObjectPanel" Width="200" HorizontalAlignment="Right">
+            <TextBlock Text="Введите название объекта:"/>
+            <TextBox x:Name="ObjectName"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Margin="0 40 0 0" x:Name="SalePanel" Width="200" Height="50" HorizontalAlignment="Right">
+            <TextBlock Text="Введите цену продажи  за ед.:"/>
+            <TextBox x:Name="SaleText"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom"  Margin="5">
+            <Button Content="Отмена" Width="80" HorizontalAlignment="Left" IsCancel="True"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Margin="5">
+            <Button Content="Продолжить" Width="80" HorizontalAlignment="Right" x:Name="ContinueButton" Click="ContinueButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

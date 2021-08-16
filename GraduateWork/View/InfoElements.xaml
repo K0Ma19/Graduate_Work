@@ -1,0 +1,109 @@
+﻿<Window x:Name="Подробнее" x:Class="WpfApp3.View.InfoElements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3.View"
+        mc:Ignorable="d"
+        Title="Подробнее" Height="300" Width="320" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="LightGray">
+        <TabControl>
+            <TabItem Header="Инфо">
+                <Grid>
+                    <StackPanel Width="100" HorizontalAlignment="Left" Margin="0 5 0 0">
+                        <TextBlock Text="Название"/>
+                        <TextBox  x:Name="NameElemets"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Margin="0 5 50 0">
+                        <TextBlock Text="Дата"/>
+                        <DatePicker x:Name="DateInfo"/>
+                    </StackPanel>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="100" Margin="0 50 0 0">
+                        <Border BorderBrush="Gray" BorderThickness="2" Margin="0 0 0 10">
+                            <Grid>
+                            <TextBlock Text="Количесво оборудования:" FontSize="15" Margin="0,0,0,-7"/>
+                            <TextBox x:Name="TextBoxQuantity" Height="20" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 0 0"/>
+                            <StackPanel HorizontalAlignment="Left" Width="100" Margin="0 50 0 0">
+                                <TextBlock Text="Исправно"/>
+                                <TextBox x:Name="TextBoxWork"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Right" Width="100" Margin="0 50 0 0">
+                                <TextBlock Text="Неисправно"/>
+                                <TextBox x:Name="TextBoxFaulty"/>
+                            </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <StackPanel Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 50 0 0">
+                        <TextBlock Text="Поставщик"/>
+                        <TextBox  x:Name="NameSupplierBox"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Margin="0 50 50 0">
+                        <TextBlock Text="Цена за ед."/>
+                        <TextBox x:Name="PriceBox"/>
+                    </StackPanel>
+                    <StackPanel Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 0 0 50">
+                        <TextBlock Text="Название объекта"/>
+                        <TextBox  x:Name="NameObjectBox"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="0 0 50 50">
+                        <TextBlock Text="Цена продажи"/>
+                        <TextBox x:Name="SalePriceBox"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                        <Button Content="Сохранить" Height="25" Width="80" x:Name="Save" Click="Save_Click"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 100 0">
+                        <Button Content="Отменить" Height="25" Width="80" x:Name="CancelButton" IsCancel="True"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Таблица">
+                <Grid>
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Text="Таблица с выбранным элементом"/>
+                        <TextBlock x:Name="NameTable" Margin="5" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 50 0 0">
+                        <TextBlock Text="Таблица в которую будет перенос"/>
+                        <ComboBox x:Name="SelectedTable" SelectionChanged="SelectedTable_SelectionChanged">
+                            <ComboBoxItem>
+                                Поступление
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Остатки
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Производство
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Продажа
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Center" Margin="0 0 0 20" x:Name="RemainQuantity" Visibility="Collapsed">
+                        <TextBlock Text="Введите количество"/>
+                        <TextBox x:Name="QuantityRemain"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0 100 0 0" x:Name="NameObjectRemain" Visibility="Collapsed">
+                        <TextBlock Text="Введите название объекта"/>
+                        <TextBox x:Name="NameRemain"/>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Center" Margin="0 100 0 0" x:Name="PriceRemain" Visibility="Collapsed">
+                        <TextBlock Text="Введите цену продажи"/>
+                        <TextBox x:Name="SaleRemain"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                        <Button Content="Сохранить" Height="25" Width="80" Click="SaveTable_Click"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 100 0">
+                        <Button Content="Отменить" Height="25" Width="80" IsCancel="True"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
